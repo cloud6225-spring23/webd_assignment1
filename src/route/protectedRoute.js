@@ -5,10 +5,14 @@ import { getUserById, updatingGivenFields  } from "../service/userService.js";
 import Forbidden from "../error_handling/Forbidden.js";
 import { checkPasswordRegex } from "../middleware/passwordRegexMW.js";
 import { emptyContent } from "../middleware/postContentError.js";
+import { checkIdUrl } from "../middleware/checkIdUrl.js";
+import { emptyContentPut } from "../middleware/emptyContentPut.js";
+import { PayloadKeyValue } from "../middleware/checkPutPayload.js";
 
 const router = Router();
 
-router.put("/v1/user/:userId", checkAuthorization, emptyContent,checkPasswordRegex, async (req, res) => {
+
+router.put("/v1/user/:userId", emptyContentPut, checkIdUrl, checkAuthorization, PayloadKeyValue, checkPasswordRegex, async (req, res) => {
   const { id } = req.response;
 
   console.log("In the response: "+req.response);
@@ -24,7 +28,7 @@ router.put("/v1/user/:userId", checkAuthorization, emptyContent,checkPasswordReg
 });
 
 
-router.get("/v1/user/:userId", checkAuthorization, async (req, res) => {
+router.get("/v1/user/:userId", checkIdUrl, checkAuthorization, async (req, res) => {
   const { id } = req.response;
 
   // console.log("In the response: "+req.response);

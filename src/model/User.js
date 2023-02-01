@@ -47,5 +47,5 @@ const sync = () => {
       console.error("Error creating table: " + err);
     });
 };
-
+//adding a comment
 export { sync, User };
