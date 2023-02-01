@@ -107,4 +107,6 @@ dist
 
 .github
 
+# Not including package-lock.json
 package-lock.json
+
