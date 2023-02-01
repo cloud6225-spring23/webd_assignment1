@@ -3,7 +3,7 @@ import Hash_pwd from "../util/hash_pwd.js";
 const encrypt_password = async (req, res, next) => {
   const { password } = req.body;
 
-  console.log("Inside the middleware");
+  console.log("inside the Middleware");
 
   const encrypted_password = await Hash_pwd.toHash(password);
 

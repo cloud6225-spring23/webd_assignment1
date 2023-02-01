@@ -8,16 +8,16 @@ const start = async () => {
   sq
     .authenticate()
     .then(() => {
-      console.log("Connected to the Database successfully");
+      console.log("Connection to the Database is success");
     })
     .catch((err) => {
-      console.error("Unable to connect to DB");
+      console.error("Unable to Connec to the Database ");
     });
 
   sync();
 
   app.listen(PORT, () => {
-    console.log(`Running on PORT: ${PORT}`);
+    console.log(`Running on the PORT: ${PORT}`);
   });
 };
 
